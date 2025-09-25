@@ -1,17 +1,15 @@
-/* --- 1. Variables de Color (Tema Claro y Vibrante) --- */
 :root {
-    --gradient-start: #007bff; /* Un azul brillante */
-    --gradient-end: #28a745;   /* Un verde fresco */
+    --gradient-start: #007bff;
+    --gradient-end: #28a745;
     --light-bg: #ffffff;
-    --secondary-bg: #f8f9fa;  /* Un gris muy claro para secciones */
-    --text-primary: #212529;   /* Texto principal (casi negro) */
-    --text-secondary: #6c757d; /* Texto secundario (gris) */
+    --secondary-bg: #f8f9fa;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
     --border-color: #e9ecef;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* --- 2. Estilos Generales (Tema Claro) --- */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--light-bg);
@@ -30,8 +28,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
- 
-
 .navbar-brand img {
     height: 60px; 
     width: auto; 
@@ -42,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.8) !important; /* Blanco ligeramente transparente para buen contraste */
+    color: rgba(255, 255, 255, 0.8) !important;
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -56,14 +52,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-/* También nos aseguramos de que el icono del toggler sea blanco para verse bien en el fondo azul */
 .navbar-dark .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-/* --- 4. Tarjetas con Sombra y Títulos de Color --- */
 .card {
-    border: none; /* Quitamos el borde para un look más limpio */
+    border: none;
     border-radius: 12px;
     box-shadow: var(--box-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -87,7 +81,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-/* --- 5. Botones con Degradado --- */
 .btn {
     border-radius: 50px;
     font-weight: 700;
@@ -108,7 +101,6 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.05);
 }
 
-/* --- 6. Formularios (Estilo Claro) --- */
 .form-control {
     border-radius: 8px;
     border: 1px solid var(--border-color);
@@ -120,7 +112,6 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
 }
 
-/* --- 7. Footer --- */
 footer {
     background-color: var(--secondary-bg);
     border-top: 1px solid var(--border-color);
@@ -128,3 +119,4 @@ footer {
     width: 100%;
     color: var(--text-secondary);
 }
+
