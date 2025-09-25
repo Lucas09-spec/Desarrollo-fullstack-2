@@ -1,51 +1,42 @@
-
-// Espera a que la página se cargue por completo
 document.addEventListener('DOMContentLoaded', () => {
 
     const loginForm = document.getElementById('loginForm');
-
-    // Si el formulario de login no está en la página, no hace nada
     if (!loginForm) return;
 
+    const correo = document.getElementById('correo');
+    const password = document.getElementById('password');
+
     loginForm.addEventListener('submit', function(event) {
-        // Previene el envío del formulario para validarlo con JS
         event.preventDefault();
+        limpiarMensajesYErrores();
 
-        limpiarErrores();
-        let esValido = true;
+        const esCorreoValido = validarCorreo();
+        const esPasswordValido = validarPassword();
 
-        // --- VALIDACIONES ---
-
-        // 1. Validar Correo (con dominios específicos)
-        const correo = document.getElementById('correo');
-        const emailRegex = /^[^\s@]+@(?:duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
-        if (!emailRegex.test(correo.value)) {
-            esValido = false;
-            mostrarError(correo, 'El correo debe ser válido y de un dominio permitido.');
-        }
-
-        // 2. Validar Contraseña (entre 4 y 20 caracteres)
-        const password = document.getElementById('password');
-        if (password.value.length < 4 || password.value.length > 20) {
-            esValido = false;
-            mostrarError(password, 'La contraseña debe tener entre 4 y 20 caracteres.');
-        }
-
-        // --- RESULTADO ---
-        if (esValido) {
-            // Lógica de ejemplo para simular un login
-            if (correo.value === 'admin@duoc.cl' && password.value === 'admin123') {
-                alert('¡Bienvenido Administrador!');
-                
-            } else {
-                alert('¡Inicio de sesión exitoso!');
-                
-            }
+        if (esCorreoValido && esPasswordValido) {
+            mostrarMensaje('¡Inicio de sesión exitoso!', 'success');
             loginForm.reset();
         } else {
-            alert('Por favor, corrige los datos ingresados.');
+            mostrarMensaje('Por favor, corrige los datos ingresados.', 'danger');
         }
     });
+
+    function validarCorreo() {
+        const emailRegex = /^[^\s@]+@(?:duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
+        if (!emailRegex.test(correo.value)) {
+            mostrarError(correo, 'El correo debe ser válido y de un dominio permitido.');
+            return false;
+        }
+        return true;
+    }
+
+    function validarPassword() {
+        if (password.value.length < 4 || password.value.length > 20) {
+            mostrarError(password, 'La contraseña debe tener entre 4 y 20 caracteres.');
+            return false;
+        }
+        return true;
+    }
 
     function mostrarError(input, mensaje) {
         input.classList.add('is-invalid');
@@ -54,9 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
             feedback.textContent = mensaje;
         }
     }
+    
+    function mostrarMensaje(mensaje, tipo = 'danger') {
+        const contenedor = document.getElementById('form-messages');
+        if(contenedor) {
+            contenedor.innerHTML = `<div class="alert alert-${tipo}" role="alert">${mensaje}</div>`;
+        }
+    }
 
-    function limpiarErrores() {
+    function limpiarMensajesYErrores() {
         document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
         document.querySelectorAll('.invalid-feedback').forEach(el => el.textContent = '');
+        
+        const contenedorMensajes = document.getElementById('form-messages');
+        if (contenedorMensajes) {
+            contenedorMensajes.innerHTML = '';
+        }
     }
 });
