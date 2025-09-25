@@ -1,0 +1,126 @@
+/* --- 1. Variables de Color (Tema Claro y Vibrante) --- */
+:root {
+    --gradient-start: #007bff; /* Un azul brillante */
+    --gradient-end: #28a745;   /* Un verde fresco */
+    --light-bg: #ffffff;
+    --secondary-bg: #f8f9fa;  /* Un gris muy claro para secciones */
+    --text-primary: #212529;   /* Texto principal (casi negro) */
+    --text-secondary: #6c757d;  /* Texto secundario (gris) */
+    --border-color: #e9ecef;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* --- 2. Estilos Generales (Tema Claro) --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+main {
+    flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+/* --- 3. Barra de Navegación Limpia y Clara --- */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+/* Para que los enlaces de la navbar sean oscuros y legibles */
+.navbar .navbar-nav .nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: var(--gradient-start) !important;
+}
+
+.navbar .navbar-nav .nav-link.active {
+    color: var(--gradient-start) !important;
+    font-weight: 700;
+}
+
+/* --- 4. Tarjetas con Sombra y Títulos de Color --- */
+.card {
+    border: none; /* Quitamos el borde para un look más limpio */
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+#productos-container .card-img-top {
+    height: 200px;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+.card-title {
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* --- 5. Botones con Degradado --- */
+.btn {
+    border-radius: 50px;
+    font-weight: 700;
+    padding: 10px 24px;
+    border: none;
+    transition: all 0.3s ease;
+    color: white !important;
+}
+
+.btn-primary, .btn-success {
+    background-image: linear-gradient(to right, var(--gradient-start) 0%, var(--gradient-end) 51%, var(--gradient-start) 100%);
+    background-size: 200% auto;
+    box-shadow: 0 4px 15px 0 rgba(0, 123, 255, 0.35);
+}
+
+.btn-primary:hover, .btn-success:hover {
+    background-position: right center;
+    transform: scale(1.05);
+}
+
+/* --- 6. Formularios (Estilo Claro) --- */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: var(--gradient-start);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+/* --- 7. Footer --- */
+footer {
+    background-color: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    width: 100%;
+    color: var(--text-secondary);
+}
