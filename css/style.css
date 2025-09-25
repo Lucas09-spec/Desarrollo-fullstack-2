@@ -5,7 +5,7 @@
     --light-bg: #ffffff;
     --secondary-bg: #f8f9fa;  /* Un gris muy claro para secciones */
     --text-primary: #212529;   /* Texto principal (casi negro) */
-    --text-secondary: #6c757d;  /* Texto secundario (gris) */
+    --text-secondary: #6c757d; /* Texto secundario (gris) */
     --border-color: #e9ecef;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -30,31 +30,35 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-/* --- 3. Barra de Navegación Limpia y Clara --- */
-.navbar {
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
+ 
 
 .navbar-brand img {
-    height: 40px;
+    height: 60px; 
+    width: auto; 
 }
 
-/* Para que los enlaces de la navbar sean oscuros y legibles */
-.navbar .navbar-nav .nav-link {
-    color: var(--text-secondary) !important;
+.navbar-dark .navbar-brand span.fw-bold {
+    color: #ffffff !important; 
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important; /* Blanco ligeramente transparente para buen contraste */
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.navbar .navbar-nav .nav-link:hover {
-    color: var(--gradient-start) !important;
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff !important; 
 }
 
-.navbar .navbar-nav .nav-link.active {
-    color: var(--gradient-start) !important;
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #ffffff !important; 
     font-weight: 700;
+}
+
+/* También nos aseguramos de que el icono del toggler sea blanco para verse bien en el fondo azul */
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 /* --- 4. Tarjetas con Sombra y Títulos de Color --- */
